@@ -16,6 +16,8 @@ namespace HerokuappTesting.Pages
         public IWebElement AddRemoveElements => driver.FindElement(By.LinkText("Add/Remove Elements"));
         public IWebElement BasicAuth => driver.FindElement(By.LinkText("Basic Auth"));
         public IWebElement BrokenImage => driver.FindElement(By.LinkText("Broken Images"));
+        public IWebElement ChallengingDOM => driver.FindElement(By.LinkText("Challenging DOM"));
+        public IWebElement Checkboxes => driver.FindElement(By.LinkText("Checkboxes"));
 
     }
 }
