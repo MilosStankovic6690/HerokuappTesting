@@ -12,16 +12,20 @@ namespace HerokuappTesting
         private AddRemoveElementsPage _addRemoveElementsPage;
         private BasicAuthPage _basicAuthPage;
         private BrokenImagePage _brokenImagePage;
+        private ChallengingDOMPage _challengingDOMPage;
+        private CheckboxesPage _checkboxesPage;
 
         [SetUp]
         public void Setup()
         {
             WebDrivers.Initialize();
             _homePage = new HomePage();
-            _abTestControlPage= new ABTestControlPage();
-            _addRemoveElementsPage= new AddRemoveElementsPage();
-            _basicAuthPage= new BasicAuthPage();
-            _brokenImagePage= new BrokenImagePage();
+            _abTestControlPage = new ABTestControlPage();
+            _addRemoveElementsPage = new AddRemoveElementsPage();
+            _basicAuthPage = new BasicAuthPage();
+            _brokenImagePage = new BrokenImagePage();
+            _challengingDOMPage = new ChallengingDOMPage();
+            _checkboxesPage = new CheckboxesPage();
         }
 
         [TearDown]
@@ -42,8 +46,7 @@ namespace HerokuappTesting
         {
             _homePage.AddRemoveElements.Click();
             _addRemoveElementsPage.AddElementButton.Click();
-            _addRemoveElementsPage.DeleteButton.Click();
-            
+            _addRemoveElementsPage.DeleteButton.Click(); 
         }
          
 
@@ -60,7 +63,23 @@ namespace HerokuappTesting
         {
             _homePage.BrokenImage.Click();
             Assert.That(_brokenImagePage.Image1.Enabled, Is.True);
-           
+        }
+
+        [Test]
+        public void TC05_FindElement_LocatorShouldBeFound()
+        {
+            _homePage.ChallengingDOM.Click();
+            Assert.That(_challengingDOMPage.Definiebas8.Displayed, Is.True);
+        }
+
+        [Test]
+        public void TC06_SelectCheckbox_CheckboxShouldBeSelected()
+        {
+            _homePage.Checkboxes.Click();
+            _checkboxesPage.Checkbox1.Click();
+            _checkboxesPage.Checkbox2.Click();
+            Assert.That(_checkboxesPage.Checkbox1.Selected);
+
         }
 
     }

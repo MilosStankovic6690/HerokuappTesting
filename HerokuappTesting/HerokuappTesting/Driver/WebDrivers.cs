@@ -16,8 +16,8 @@ namespace HerokuappTesting.Driver
         {
             Instance = new ChromeDriver();
             Instance.Manage().Window.Maximize();
-            Instance.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
-            Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Instance.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(20);
+            Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             Instance.Navigate().GoToUrl("http://the-internet.herokuapp.com/");
         }
         public static void Shutdown()
