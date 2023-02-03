@@ -14,6 +14,9 @@ namespace HerokuappTesting
         private BrokenImagePage _brokenImagePage;
         private ChallengingDOMPage _challengingDOMPage;
         private CheckboxesPage _checkboxesPage;
+        private ContexMenuPage _contexMenuPage;
+        private DigestAuthenticationPage _digestAuthenticationPage;
+        private DisappearingElementsPage _disappearingElementsPage;
 
         [SetUp]
         public void Setup()
@@ -26,6 +29,9 @@ namespace HerokuappTesting
             _brokenImagePage = new BrokenImagePage();
             _challengingDOMPage = new ChallengingDOMPage();
             _checkboxesPage = new CheckboxesPage();
+            _contexMenuPage = new ContexMenuPage();
+            _digestAuthenticationPage = new DigestAuthenticationPage();
+            _disappearingElementsPage = new DisappearingElementsPage();
         }
 
         [TearDown]
@@ -79,8 +85,32 @@ namespace HerokuappTesting
             _checkboxesPage.Checkbox1.Click();
             _checkboxesPage.Checkbox2.Click();
             Assert.That(_checkboxesPage.Checkbox1.Selected);
-
         }
 
+        [Test]
+        public void TC07_SelectCheckbox_CheckboxShouldBeSelected()
+        {
+            _homePage.ContexMenu.Click();
+            _contexMenuPage.RightClick();
+            _contexMenuPage.Alert();
+            Assert.Pass();
+        }
+
+        [Test]
+        public void TC08_FillUsernameAndPasswordWithValidData_ShouldPageBeDisplayed()
+        {
+            _homePage.BasicAuth.Click();
+            _basicAuthPage.AlertPopUpLogin("admin", "admin");
+            Assert.That(_digestAuthenticationPage.SuccessfulLoginText, Is.EqualTo(_digestAuthenticationPage.SuccessfulLoginContent.Text));
+        }
+
+        [Test]
+        public void TC09_FindTheDisappearingLocators_ElementsShouldBeFound()
+        {
+            _homePage.DisappearingElements.Click();
+            _disappearingElementsPage.WaitElement();
+            
+            
+        }
     }
 }
