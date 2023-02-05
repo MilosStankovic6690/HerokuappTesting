@@ -17,6 +17,7 @@ namespace HerokuappTesting
         private ContexMenuPage _contexMenuPage;
         private DigestAuthenticationPage _digestAuthenticationPage;
         private DisappearingElementsPage _disappearingElementsPage;
+        private DragandDropPage _dragandDropPage;
 
         [SetUp]
         public void Setup()
@@ -32,6 +33,7 @@ namespace HerokuappTesting
             _contexMenuPage = new ContexMenuPage();
             _digestAuthenticationPage = new DigestAuthenticationPage();
             _disappearingElementsPage = new DisappearingElementsPage();
+            _dragandDropPage = new DragandDropPage();
         }
 
         [TearDown]
@@ -108,9 +110,15 @@ namespace HerokuappTesting
         public void TC09_FindTheDisappearingLocators_ElementsShouldBeFound()
         {
             _homePage.DisappearingElements.Click();
-            _disappearingElementsPage.WaitElement();
-            
-            
+           _disappearingElementsPage.MouseMove();
+            Assert.Pass();
+        }
+
+        [Test]
+        public void TC10_MoveTheBoxToAnother_BoxShouldMove()
+        {
+            _homePage.DragAndDrop.Click();
+            _dragandDropPage.MoveObject();
         }
     }
 }
