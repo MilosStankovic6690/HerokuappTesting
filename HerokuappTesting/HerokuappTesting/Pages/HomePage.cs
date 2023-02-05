@@ -21,6 +21,8 @@ namespace HerokuappTesting.Pages
         public IWebElement ContexMenu => driver.FindElement(By.LinkText("Context Menu"));
         public IWebElement DigestAuthentication => driver.FindElement(By.LinkText("Digest Authentication"));
         public IWebElement DisappearingElements => driver.FindElement(By.LinkText("Disappearing Elements"));
+        public IWebElement DragAndDrop => driver.FindElement(By.LinkText("Drag and Drop"));
+
 
     }
 }
