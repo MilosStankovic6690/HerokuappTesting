@@ -18,8 +18,8 @@ namespace HerokuappTesting.Pages
         public void MoveObject()
         {
             var builder = new Actions(driver);
-            var move = builder.ClickAndHold(BoxA).MoveToElement(BoxB).Release(BoxA).Build();
-            move.Perform();
+            builder.DragAndDrop(BoxA, BoxB).Build();
+            builder.Perform();
         }
     }
 
