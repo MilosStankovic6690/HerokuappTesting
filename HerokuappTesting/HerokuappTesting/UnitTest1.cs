@@ -18,6 +18,7 @@ namespace HerokuappTesting
         private DigestAuthenticationPage _digestAuthenticationPage;
         private DisappearingElementsPage _disappearingElementsPage;
         private DragandDropPage _dragandDropPage;
+        private DropdownPage _dropdownPage;
 
         [SetUp]
         public void Setup()
@@ -34,6 +35,7 @@ namespace HerokuappTesting
             _digestAuthenticationPage = new DigestAuthenticationPage();
             _disappearingElementsPage = new DisappearingElementsPage();
             _dragandDropPage = new DragandDropPage();
+            _dropdownPage = new DropdownPage();
         }
 
         [TearDown]
@@ -119,6 +121,15 @@ namespace HerokuappTesting
         {
             _homePage.DragAndDrop.Click();
             _dragandDropPage.MoveObject();
+            Assert.Pass();
+        }
+
+        [Test]
+        public void TC11_SelectAnOptionFromTheDropdown_ItShouldBeSelected()
+        {
+            _homePage.DropDown.Click();
+            _dropdownPage.SelectOption("2");
+            Assert.Pass();
         }
     }
 }
