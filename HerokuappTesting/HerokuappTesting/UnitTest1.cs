@@ -131,5 +131,13 @@ namespace HerokuappTesting
             _dropdownPage.SelectOption("2");
             Assert.Pass();
         }
+
+        [Test]
+        public void TC12_SelectAnOptionFromTheDropdown_ItShouldBeSelected()
+        {
+            _homePage.DropDown.Click();
+            _dropdownPage.SelectOption("2");
+            Assert.Pass();
+        }
     }
 }
